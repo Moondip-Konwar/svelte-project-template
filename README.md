@@ -3,8 +3,6 @@
 A minimal, static SvelteKit project template with Tailwind CSS, TypeScript, and pnpm.  
 Designed for static hosting (GitHub Pages, Cloudflare Pages, Netlify, etc.) and easy customization.
 
----
-
 ## Features
 
 - SvelteKit with `adapter-static`
@@ -14,7 +12,7 @@ Designed for static hosting (GitHub Pages, Cloudflare Pages, Netlify, etc.) and 
 - Static-site friendly configuration
 - Minimal project structure for templates
 
----
+
 
 ## Project Structure
 
@@ -32,7 +30,7 @@ Designed for static hosting (GitHub Pages, Cloudflare Pages, Netlify, etc.) and 
 
 ```
 
----
+ 
 
 ## Getting Started
 
@@ -44,7 +42,7 @@ cd my-app
 pnpm install
 ```
 
----
+
 
 ## Development
 
@@ -60,7 +58,6 @@ Open in browser:
 pnpm dev --open
 ```
 
----
 
 ## Build (Static Output)
 
@@ -76,7 +73,7 @@ pnpm preview
 
 The static site will be generated in the `build/` directory.
 
----
+ 
 
 ## GitHub Pages Deployment
 
@@ -90,7 +87,7 @@ paths: {
 
 Replace `REPO_NAME` with your GitHub repository name.
 
----
+ 
 
 ### Optional: Environment-based base path
 
@@ -102,14 +99,14 @@ BASE_PATH=/my-project pnpm build
 base: process.env.BASE_PATH || "";
 ```
 
----
+ 
 
 ## Static Routing Notes
 
 - `fallback: "404.html"` is enabled for SPA routing on static hosts.
 - Dynamic routes must be prerendered manually if used.
 
----
+ 
 
 ## Tailwind CSS
 
@@ -120,14 +117,14 @@ Add optional plugins manually if needed:
 pnpm add -D @tailwindcss/typography @tailwindcss/forms
 ```
 
----
+ 
 
 ## Fonts
 
 The template currently uses Google Sans via CSS import.
 You may replace it with system fonts or self-hosted fonts for better performance and privacy.
 
----
+ 
 
 ## Package Manager
 
@@ -140,4 +137,4 @@ corepack enable
 corepack prepare pnpm@latest --activate
 ```
 
----
+ 
