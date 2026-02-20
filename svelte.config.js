@@ -1,6 +1,16 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from "@sveltejs/adapter-static";
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = { kit: { adapter: adapter() } };
+const config = {
+  kit: {
+    adapter: adapter({
+      pages: "build",
+      assets: "build",
+      fallback: "404.html", // SPA fallback (important)
+    }),
+    paths: {
+      base: process.env.NODE_ENV === "production" ? "/REPO_NAME" : "",
+    },
+  },
+};
 
 export default config;
