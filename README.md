@@ -1,42 +1,143 @@
-# sv
+# Svelte Project Template
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A minimal, static SvelteKit project template with Tailwind CSS, TypeScript, and pnpm.  
+Designed for static hosting (GitHub Pages, Cloudflare Pages, Netlify, etc.) and easy customization.
 
-## Creating a project
+---
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features
 
-```sh
-# create a new project
-npx sv create my-app
+- SvelteKit with `adapter-static`
+- TypeScript enabled
+- Tailwind CSS (no opinionated plugins by default)
+- pnpm package manager
+- Static-site friendly configuration
+- Minimal project structure for templates
+
+---
+
+## Project Structure
+
 ```
 
-To recreate this project with the same configuration:
+.
+├── src/
+│   ├── lib/            # Reusable components and assets
+│   ├── routes/         # SvelteKit routes
+│   └── app.html
+├── static/              # Static assets (robots.txt, images, etc.)
+├── svelte.config.js
+├── tailwind config (via @tailwindcss/vite)
+└── vite.config.ts
 
-```sh
-# recreate this project
-pnpm dlx sv create --template minimal --types ts --add tailwindcss="plugins:none" sveltekit-adapter="adapter:static" --install pnpm svelte-project-template
 ```
 
-## Developing
+---
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Getting Started
 
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+### Create a new project from this template
 
 ```sh
-npm run build
+git clone https://github.com/YOUR_USERNAME/svelte-project-template.git my-app
+cd my-app
+pnpm install
 ```
 
-You can preview the production build with `npm run preview`.
+---
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Development
+
+Start the dev server:
+
+```sh
+pnpm dev
+```
+
+Open in browser:
+
+```sh
+pnpm dev --open
+```
+
+---
+
+## Build (Static Output)
+
+```sh
+pnpm build
+```
+
+Preview the production build:
+
+```sh
+pnpm preview
+```
+
+The static site will be generated in the `build/` directory.
+
+---
+
+## GitHub Pages Deployment
+
+### Set base path in `svelte.config.js`
+
+```js
+paths: {
+  base: process.env.NODE_ENV === "production" ? "/REPO_NAME" : "",
+}
+```
+
+Replace `REPO_NAME` with your GitHub repository name.
+
+---
+
+### Optional: Environment-based base path
+
+```sh
+BASE_PATH=/my-project pnpm build
+```
+
+```js
+base: process.env.BASE_PATH || "";
+```
+
+---
+
+## Static Routing Notes
+
+- `fallback: "404.html"` is enabled for SPA routing on static hosts.
+- Dynamic routes must be prerendered manually if used.
+
+---
+
+## Tailwind CSS
+
+Tailwind is installed with no plugins by default.
+Add optional plugins manually if needed:
+
+```sh
+pnpm add -D @tailwindcss/typography @tailwindcss/forms
+```
+
+---
+
+## Fonts
+
+The template currently uses Google Sans via CSS import.
+You may replace it with system fonts or self-hosted fonts for better performance and privacy.
+
+---
+
+## Package Manager
+
+This project uses **pnpm**.
+
+Install pnpm if needed:
+
+```sh
+corepack enable
+corepack prepare pnpm@latest --activate
+```
+
+---
